@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+/*==============================
+=>  Color Variables
+================================*/
+:root {
+    --color-main: #71c6dd;
+    --color-main-light: #e1f6fb;
+    --color-dark: #3f4156;
+    --color-dark-medium: #51546e;
+    --color-dark-light: #696d97;
+    --color-light: #e5e5e5;
+    --color-gray: #8b8b8b;
+    --color-light-gray: #b2bdbd;
+    --color-bg: #2d2d39;
+    --color-success: #5dd693;
+    --color-error: #fc4b0b;
+}
+
+/*==============================
+=>  Base Styles
+================================*/
+* {
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    font-size: inherit;
+}
+
+html {
+    font-size: 63.25%;
+}
+
+@media only screen and (min-width: 1200px) {
+    html {
+        font-size: 62.5%;
+    }
+}
+
+@media only screen and (min-width: 2100px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+body {
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--color-light-gray);
+    background-color: var(--color-bg);
+    min-height: 100vh;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    display: inline-block;
+    color: var(--color-main);
+    text-decoration: none;
+}
+
+/*==============================
+=>  siisiTitle Title Styles
+================================*/
+.siisiTitle {
+    background-color: rgb(41, 41, 46);
+    border-radius: 0.3rem;
+    color: #ab51f5;
+    font-family: 'Merriweather', sans-serif;
+    font-display: swap;
+    font-size: 1.9rem;
+    font-weight: 900;
+    margin: 0;
+    text-align: center;
+    text-decoration: underline;
+}
+
+/*==============================
+=>  Jumbotron Animation
+================================*/
+#content > div.container-fluid > div > div {
+    animation: color-change 10s linear infinite;
+}
+
+@keyframes color-change {
+    25% {
+        background-color: #FC5378;
+    }
+    50% {
+        background-color: #4044E6;
+    }
+    100% {
+        background-color: #47FFAC;
+    }
+}
+
+/*==============================
+=>  Jumbotron Animation
+================================*/
+.refrain {
+    color: #ab51f5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*==============================
+=>  Custom UI Components
+================================*/
+.crown {
+    border: 0.1rem solid #AEFAFC;
+    border-radius: 2.3rem;
+    padding: 0.3rem;
+    width: 2.7rem;
+}
+
+/*==============================
+=>  Footer Styles
+================================*/
+.copyright {
+    background-color: rgb(41, 41, 46);
+    border: 0.1rem solid #ccc;
+    border-radius: 0.5rem;
+    color: #b55fd9;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+/*==============================
+=>  Dark-Mode Section
+================================*/
+body.dark-mode {
+  background-color: #111;
+  color: #999 !important; /* Soft dark gray */
+}
+
+.togglebutton {
+  display: flex;
+}
+
+.togglebutton label {
+  position: relative;
+  display: inline-block;
+  width: 37px;
+  height: 19px;
+  cursor: pointer;
+}
+
+.togglebutton input {
+  display: none; /* Hide the default checkbox */
+}
+
+.togglebutton .toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 30px;
+  transition: background-color 0.4s;
+}
+
+.togglebutton .toggle::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+/* Dark Mode Styling */
+.togglebutton input:checked + .toggle {
+  background-color: #ab51f5;
+}
+
+.togglebutton input:checked + .toggle::before {
+  transform: translateX(19px);
+}
+
+/* Dark Mode Text */
+.togglebutton .dark-mode-text {
+  margin-left: 10px;
+  color: #4d4d4d;
+  font-weight: bold;
+}
+
+/*==============================
+=>  Translate Language BTN Section
+================================*/
+
+.darkmode-selectlang-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.language-form select {
+  padding: 2px 5px; /* Smaller padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px; /* Smaller font size */
+  width: auto; /* Let the width adjust dynamically */
+  height: 19; /* Adjust height for consistency */
+}
+
+.language-form {
+  margin: 0;
+}

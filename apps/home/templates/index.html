@@ -1,0 +1,46 @@
+<!-- apps/home/templates/index.html -->
+
+{% extends 'main.html' %}
+
+{% load static i18n %}
+
+{% block favicon %}
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon1.ico' %}">
+{% endblock %}
+
+{% block title %}{% trans "Home" %}{% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="chat-container">
+    <!-- Header Section -->
+    <header class="bg-secondary text-white p-4 text-center mt-5 mb-5">
+        <h1>
+            {% trans "Welcome to the website" %}
+            <a style="text-decoration: underline;" href="http://siisi.copromanager.pro/"> 
+                ·SìįSí·Dbt·
+            </a>
+        </h1>
+    </header>
+
+    <!-- Main Section -->
+    <main class="flex flex-col flex-grow p-4">
+
+        <h5 class="text-center refrain">
+            {% trans "-¡!¡- Be Good, Doing Good by Acting GOOD -¡!¡-" %}
+        </h5>
+        <div class="text-center mb-3"><i class="fa-solid fa-arrow-down"></i></div>
+        
+        <div class="text-center mb-5">
+            <a href="http://siisi.copromanager.pro/">
+                <img src="{% static 'images/logo_ai.jpg' %}" alt="{% trans 'Logo AI' %}" style="width:55%;">
+            </a>
+        </div>
+
+    </main>
+</div>
+
+{% endblock %}

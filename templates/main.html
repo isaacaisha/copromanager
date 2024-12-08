@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+{% load static i18n %}
+<html lang="en">
+
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <meta name="geo.place-name" content="{% trans 'Spain' %}">
+  <meta property="og:type" content="{% trans 'website' %}">
+  <meta name="description"
+    content="{% trans 'Experience the power of AI with ·SìįSí·Dbt·, your personal assistant powered by ChatGPT. Enhance productivity, streamline tasks, and get personalized assistance.' %}">
+  <meta property="og:title" content="{% trans '·SìįSí·Dbt· - AI Personal Assistant' %}">
+  <meta property="og:description"
+    content="{% trans '·SìįSí·Dbt· - Your personal assistant powered by ChatGPT AI. Increase productivity, automate tasks, and receive personalized recommendations.' %}">
+  <meta property="og:image" content="https://copromanager.pro/static/images/logo_ai.jpg">
+  <meta property="og:url" content="https://copromanager.pro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% trans '·SìįSí·Dbt· - AI Personal Assistant' %}">
+  <meta name="twitter:description"
+    content="{% trans '·SìįSí·Dbt· - Your personal assistant powered by ChatGPT AI. Increase productivity, automate tasks, and receive personalized recommendations.' %}">
+  <meta name="twitter:image" content="https://copromanager.pro/static/images/logo3.jpg">
+  <meta name="keywords"
+    content="{% trans 'AI assistant, ChatGPT, productivity, automation, personalized recommendations, ·SìįSí·Dbt·' %}">
+  <meta name="author" content="{% trans 'Developer' %}">
+  <meta name="google-site-verification" content="bYBQsihs2g2t3_99rBWJO60qaXSCS7ay3kIz5urnBGs">
+  <meta name="robots" content="{% trans 'index, follow' %}">
+  <meta name="googlebot" content="{% trans 'index, follow' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  </noscript>
+
+  <title>{% block title %}{% endblock %} 👌🏿{% trans '·SìįSí·Dbt· App' %}💪🏿</title>
+
+  <!-- Font Awesome Kit -->
+  <script src="https://kit.fontawesome.com/79e7395fe9.js" crossorigin="anonymous" defer></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+  
+  <!-- Custom fonts for this template -->
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+
+  <!-- Specific Page CSS goes HERE  -->
+  {% block stylesheets %}{% endblock stylesheets %}
+
+  {% block favicon %}
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon1.ico' %}">
+  {% endblock %}
+
+  {% endblock %}
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <div id="content" class="container-fluid">
+    <!-- Content-Title -->
+    {% block content1 %}
+    <div class="container-fluid">
+      <div class="p-3 rounded-3 jumbotron text-light">
+        <div class="container-fluid p-1">
+          <h1 class="siisiTitle">
+            <img src="{% static 'images/crown.webp' %}" alt="{% trans 'Crown Icon' %}" class="crown img-fluid mx-auto" width="100" height="100">
+            {% trans '·SìįSí·Dbt·' %}
+            <img src="{% static 'images/crown.webp' %}" alt="{% trans 'Crown Icon' %}" class="crown img-fluid mx-auto" width="100" height="100">
+          </h1>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    
+    {% block darkmode&language %}
+    <div class="darkmode-selectlang-container mb-3">
+      <div class="togglebutton">
+        <label>
+          <input type="checkbox" id="theme-toggle">
+          <span id="darkMode" class="toggle"></span>
+        </label>
+        <span class="dark-mode-text">{% trans 'Dark Mode' %}</span>
+      </div>
+    
+      <div>
+        <form class="language-form" method="post" action="{% url 'set_language' %}">
+          {% csrf_token %}
+          <select name="language" onchange="this.form.submit()">
+            {% for lang_code, lang_name in LANGUAGES %}
+            <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+              {{ lang_name }}
+            </option>
+            {% endfor %}
+          </select>
+          <i class="fa-solid fa-globe"></i>
+        </form>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block navbar %}
+    {% include 'navbar.html' %}
+    {% endblock %}
+
+    {% block work_in_progress %}
+    <!--<p class="text-center mb-5">
+      <img src="https://media.giphy.com/media/QJfCtrknxjcGPnRfMl/giphy.gif" 
+      alt="{% trans 'Work in Progress Animation' %}" style="width:19%;">
+    </p>-->
+    {% endblock %}
+
+    {% if messages %}
+    <div>
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show justify-content-between align-items-center">
+        <span class="text-dark">{{ message }}</span>
+        <button type="button" class="btn-close p-2" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Content -->
+    <div>{% block content %}{% endblock %}</div>
+
+  </div>
+
+  <div>
+
+    {% block footer %}
+    <footer id="footer">
+      <h6 class="text-center mb-3">
+        <a href="https://siisi.api.copromanager.pro/docs" target="_blank" class="api">
+          {% trans 'SìįSí FastAPI' %}
+        </a>
+      </h6>
+
+      <div>
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/dbtevolution/" aria-label="{% trans 'Instagram DBTEvolution' %}" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://siisi.api.copromanager.pro/docs" aria-label="{% trans 'FastAPI Documentation' %}" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-code fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://github.com/isaacaisha" aria-label="{% trans 'Isaac Aisha\'s GitHub' %}" target="_blank">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+
+            <div class="text-center mb-3">
+              <span class="copyright">
+                © DBT {% trans 'Copyright' %} {{ date }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    {% endblock %}
+    
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/dark-mode.js' %}"></script>
+
+    <!-- If we use Bootstrap components that require Javascript add the following file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous" defer>
+      </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          // Select all dismissable alerts with the close button
+          document.querySelectorAll('.alert-dismissible .close').forEach((closeBtn) => {
+            closeBtn.addEventListener('click', (event) => {
+              const alert = event.target.closest('.alert');
+              if (alert) {
+                alert.classList.remove('show'); // Remove 'show' class for fade-out effect
+                alert.addEventListener('transitionend', () => alert.remove()); // Remove the element after animation
+              }
+            });
+          });
+        });
+    </script>
+
+  </div>
+</body>
+
+</html>
